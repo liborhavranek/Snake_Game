@@ -29,6 +29,14 @@ class Snake:
 	def extend_snake(self):
 		self.add_segment(self.snake[-1].position())
 
+	def reset(self):
+		"""send the old segments of death snake to coordinates away and create new snake"""
+		for seg in self.snake:
+			seg.goto(1000, 1000)
+		self.snake.clear()
+		self.create_snake()
+		self.head = self.snake[0]
+
 
 	def moving_snake(self):
 		for segment_number in range(len(self.snake) - 1, 0, -1):
